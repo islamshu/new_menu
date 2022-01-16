@@ -1,0 +1,111 @@
+* {
+    font-family: 'Cairo', sans-serif;
+}
+
+.title {
+    text-align: center !important;
+    font-size: 50px;
+    color: #000;
+}
+
+.desc {
+    text-align: center !important;
+    font-size: 30px;
+    color: #000;
+}
+
+.card-title {
+    direction: rtl;
+    text-align: right;
+}
+
+.paragraph {
+    text-align: center;
+    color: #846725;
+    margin-top: 8%;
+    font-size: 34px;
+}
+
+.shadow {
+    padding: 2%;
+}
+
+.price {
+    color: green;
+}
+
+.title_menu {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.link1 {
+    float: right;
+    margin-top: 15%;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.link2 {
+    float: left;
+    margin-top: 5%;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 860px !important;
+    }
+    .card-img {
+        /* width: 94%; */
+        height: 100%;
+        /* margin-left: 32%; */
+        text-align: center;
+        border-radius: calc(.25rem - 1px);
+    }
+}
+
+.desc {
+    background: -webkit-linear-gradient(#fff81d, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #fff81d4a;
+}
+
+.icon-bar {
+    position: absolute;
+    background-color: #fff;
+}
+
+.icon-bar a {
+    display: block;
+    text-align: right;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: #c08b8b;
+    font-size: 36px;
+}
+
+.icon-bar a:hover {
+    background-color: #000;
+}
+
+.active {
+    background-color: #04AA6D;
+}
+
+.icon-bar-two {
+    text-align: right;
+    background-color: #fff;
+}
+
+.icon-bar-two a {
+    display: inline;
+    text-align: right;
+    padding: 10px;
+    transition: all 0.3s ease;
+    color: #c08b8b;
+    font-size: 36px;
+}
+
+.icon-bar-two a:hover {
+    background-color: rgb(238, 238, 238);
+}
