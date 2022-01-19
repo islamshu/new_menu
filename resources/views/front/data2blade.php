@@ -60,33 +60,33 @@
             </div>
              {{-- end categories --}}
              <div id="all">
-                @foreach ($products as $item)
-    
-                
-                    <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2 page-section " >
-                        <div class="card shadow">
-                            <img class="card-img" src="{{ $item->image }}" width="300" height="350" alt="succulent">
-    
-                            <div class="card-body">
-                                <h4 class="card-title title_menu">{{ $item->product_name }}</h4>
-                                <p class="card-text paragraph">
-                                    {!! $item->product_desc !!}
-                                </p>
-                            </div>
-                            <div class="card-body">
-                                <a class="card-link link1 "> <span class="price">CAL
-                                        {{ $item->product_calories }} </span> / {{ $item->price_currency }}
-                                    {{ $item->product_price }}
-                                </a>
-                                <a class="card-link link2"><img src="{{ $general_data->vendor_image }}" width="170"
-                                        height="180" alt=""></a>
-                            </div>
-    
+            @foreach ($products as $item)
+
+            
+                <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2 page-section " >
+                    <div class="card shadow">
+                        <img class="card-img" src="{{ $item->image }}" width="300" height="350" alt="succulent">
+
+                        <div class="card-body">
+                            <h4 class="card-title title_menu">{{ $item->product_name }}</h4>
+                            <p class="card-text paragraph">
+                                {!! $item->product_desc !!}
+                            </p>
                         </div>
+                        <div class="card-body">
+                            <a class="card-link link1 "> <span class="price">CAL
+                                    {{ $item->product_calories }} </span> / {{ $item->price_currency }}
+                                {{ $item->product_price }}
+                            </a>
+                            <a class="card-link link2"><img src="{{ $general_data->vendor_image }}" width="170"
+                                    height="180" alt=""></a>
+                        </div>
+
                     </div>
-                
-                @endforeach
-            </div>
+                </div>
+            
+            @endforeach
+        </div>
             @foreach ($general_data->menu_categories as $item)
 
             @php
@@ -124,12 +124,14 @@
             @endforeach
         </div>
             @endforeach
+       
 
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             window.addEventListener('scroll', function() {
@@ -147,6 +149,7 @@
             });
         });
     </script>
+ 
     <script>
         $(document).ready(function () {
     $(document).on("scroll", onScroll);
@@ -175,11 +178,11 @@
 
 function onScroll(event){
     var scrollPos = $(document).scrollTop();
-    $('#navbar_top a').each(function () {
+    $('.scrollmenu a').each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
         if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-            $('#navbar_top a').removeClass("active");
+            $('.scrollmenu a').removeClass("active");
             currLink.addClass("active");
         }
         else{
@@ -188,7 +191,8 @@ function onScroll(event){
     });
 }
     </script>
-   
+      
+
     
 
 </body>
