@@ -16,6 +16,8 @@
 
 
 <body>
+   
+
 
     <div class="container">
         <div class="row justify-content-center">
@@ -44,7 +46,17 @@
 
                 </div>
             </div>
-      
+            {{-- start categories --}}
+            <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2">
+                <div class="scrollmenu" id="navbar_top">
+                    @foreach ($general_data->menu_categories as $item)
+
+                        <a href="#{{ $item->category_id }}" onclick="getproduct('{{ $item->category_id }}')">{{ $item->category_name }}</a>
+                    @endforeach
+
+                </div>
+            </div>
+             {{-- end categories --}}
             @foreach ($products as $item)
 
 
@@ -70,12 +82,62 @@
                     </div>
                 </div>
             @endforeach
+            <div id="products">
+                
+            </div>
+            <div class="loader" style="display:none"></div>
+
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 350) {
+                    //   alert(window.scrollY)
+                    document.getElementById('navbar_top').classList.add('fixed-top');
+                    // add padding top to show content behind navbar
+                    navbar_height = document.querySelector('.scrollmenu').offsetHeight;
+                    document.body.style.paddingTop = navbar_height + 'px';
+                } else {
+                    document.getElementById('navbar_top').classList.remove('fixed-top');
+                    // remove padding top from body
+                    document.body.style.paddingTop = '0';
+                }
+            });
+        });
+
+    </script>
+    <script>
+        // $(document).ready(function() {
+            function getproduct(id) {
+                
+                $('loader').show();
+
+                $.ajax({
+                type: 'get',
+                url: "{{ route('category', $rest_name) }}",
+                data: {
+                    'id': id,
+                    // 'data':'{{ $rest_name }}'
+                },
+                success: function(data) {
+                    $('loader').hide();
+                $('#products').append(data);
+                document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+
+
+
+                }
+
+            });
+            }
+        // });
+    </script>
+    
+
 </body>
 
 </html>

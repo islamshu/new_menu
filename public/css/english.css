@@ -2,6 +2,18 @@
     font-family: 'Cairo', sans-serif;
 }
 
+.fixed-top {
+    background-color: #6d6565;
+    overflow: auto;
+    white-space: nowrap;
+    width: 66% !important;
+    height: 67px;
+    direction: rtl;
+    font-size: 25px;
+    top: 0;
+    left: 17%;
+}
+
 .title {
     text-align: center !important;
     font-size: 50px;
@@ -34,6 +46,26 @@
     color: #81d85d;
 }
 
+.loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .title_menu {
     font-size: 30px;
     font-weight: bold;
@@ -52,6 +84,33 @@
 }
 
 @media (min-width: 768px) {
+    .fixed-top {
+        position: fixed;
+        top: 1px;
+        right: 0;
+        left: 19px;
+        z-index: 1030;
+        width: 85% !important;
+    }
+    div.scrollmenu {
+        background-color: #6d6565;
+        overflow: auto;
+        white-space: nowrap;
+        width: 100% !important;
+        height: 69px;
+        direction: rtl;
+        font-size: 25px;
+    }
+    div.scrollmenu a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+    }
+    div.scrollmenu a:hover {
+        background-color: #777;
+    }
     .container {
         max-width: 1030px !important
     }
@@ -110,26 +169,6 @@
     background-color: rgb(238, 238, 238);
 }
 
-div.scrollmenu {
-    background-color: #6d6565;
-    overflow: auto;
-    white-space: nowrap;
-    width: 96%;
-    direction: rtl;
-}
-
-div.scrollmenu a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-}
-
-div.scrollmenu a:hover {
-    background-color: #777;
-}
-
 .pagination {
     display: inline-block;
     background: azure;
@@ -159,13 +198,4 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.fixed-top {
-    position: fixed;
-    top: 1px;
-    /* right: 0; */
-    left: 72px;
-    z-index: 1030;
-    width: 85% !important;
 }
