@@ -12,7 +12,8 @@ class HomeController extends Controller
         $data = Http::get('https://dashboard.yalago.net/api/vendor/'.$data.'/all-products')->getBody()->getContents();
         $body = json_decode($data);
         $general_data = json_decode( $general_data)->data;
-        // dd($general_data);
+
+        // dd($general_data->menu_categories);
 
         $products = $body->data->products_menu;
         $pagination = $body->data->paginate;
@@ -25,5 +26,10 @@ class HomeController extends Controller
         // $next_page = $pagination['next_page'];
       
         return view('front.data',compact('products','general_data','pagination'));
+    }
+    public function product_by_category(Request $request)
+    {
+        $general_data =  Http::get('dashboard.yalago.net/api/vendor/'.$request->data.'/menu?category_id='.$request->category_id)->getBody()->getContents();
+       dd($general_data);
     }
 }

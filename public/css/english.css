@@ -53,7 +53,7 @@
 
 @media (min-width: 768px) {
     .container {
-        max-width: 860px !important;
+        max-width: 1030px !important
     }
     .card-img {
         /* width: 94%; */
@@ -108,4 +108,64 @@
 
 .icon-bar-two a:hover {
     background-color: rgb(238, 238, 238);
+}
+
+div.scrollmenu {
+    background-color: #6d6565;
+    overflow: auto;
+    white-space: nowrap;
+    width: 96%;
+    direction: rtl;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+
+.pagination {
+    display: inline-block;
+    background: azure;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+body {
+    min-height: 100vh;
+    background-image: radial-gradient( circle 621px at 25.3% 13.8%, rgba(255, 255, 255, 1) 0%, rgba(234, 236, 255, 1) 90%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 1px;
+    /* right: 0; */
+    left: 72px;
+    z-index: 1030;
+    width: 85% !important;
 }
