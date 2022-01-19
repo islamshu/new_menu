@@ -8,15 +8,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('css/english.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/arabic.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('css/english.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/arabic.css') }}">
 
 </head>
 <style>
+    .pagination {
+  display: inline-block;
+  background: azure;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
     body {
     min-height: 100vh;
-    /* background-image: radial-gradient( circle 621px at 25.3% 13.8%, rgba(255, 255, 255, 1) 0%, rgba(234, 236, 255, 1) 90%); */
-    background-image: url({{ $general_data->vendor_cover_img }});
+    background-image: radial-gradient( circle 621px at 25.3% 13.8%, rgba(255, 255, 255, 1) 0%, rgba(234, 236, 255, 1) 90%);
+    /* background-image: url({{ $general_data->vendor_cover_img }}); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +66,7 @@
                     <div class="text-white">
 
                         <h5 class="card-title title"><img src="{{ $general_data->vendor_image }}" width="350"
-                                height="300" alt=""></h5>
+                                height="400" alt=""></h5>
 
                         <h5 class="card-title title">{{ $general_data->vendor_name }}</h5>
                         <p class="card-text desc">{{ $general_data->vendor_desc }}</p>
@@ -72,7 +94,7 @@
                                 {{ $item->product_price }}
                             </a>
                             <a class="card-link link2"><img src="{{ $general_data->vendor_image }}" width="170"
-                                    height="170" alt=""></a>
+                                    height="180" alt=""></a>
                         </div>
 
                     </div>

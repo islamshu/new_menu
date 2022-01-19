@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
-    public function index($data){
+    public function index(Request $request,$data){
         $general_data =  Http::get('dashboard.yalago.net/api/vendor/'.$data.'/info')->getBody()->getContents();
         $data = Http::get('https://dashboard.yalago.net/api/vendor/'.$data.'/all-products')->getBody()->getContents();
         $body = json_decode($data);
@@ -15,7 +15,15 @@ class HomeController extends Controller
         // dd($general_data);
 
         $products = $body->data->products_menu;
-        // dd($products);
-        return view('front.data',compact('products','general_data'));
+        $pagination = $body->data->paginate;
+        // dd($pagination);
+
+        // $numOfpages = ceil($pagination->total /  $pagination->per_page) ;
+        // $current_page = $pagination->currentPage;
+        // $has_next_page = $pagination->hasMorePages;
+        // $has_previous_page = $pagination->previousPageUrl;
+        // $next_page = $pagination['next_page'];
+      
+        return view('front.data',compact('products','general_data','pagination'));
     }
 }
