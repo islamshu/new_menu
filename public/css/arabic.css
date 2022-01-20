@@ -8,6 +8,10 @@
     color: #000;
 }
 
+.scrollbar-thumb {
+    display: none;
+}
+
 .pagination {
     display: inline-block;
     background: azure;
@@ -118,7 +122,7 @@ body {
         overflow: auto;
         white-space: nowrap;
         width: 100% !important;
-        height: 69px;
+        height: 76px;
         direction: rtl;
         font-size: 25px;
     }
@@ -136,10 +140,29 @@ body {
         position: fixed;
         top: 1px;
         /* right: 0; */
-        left: 72px;
+        left: 2px;
         z-index: 1030;
-        width: 85% !important;
     }
+}
+
+.fa-facebook {
+    color: rgb(0, 89, 255);
+}
+
+.fa-twitter {
+    color: #1da1f2;
+}
+
+.fa-instagram {
+    color: #c32aa3
+}
+
+.fa-snapchat {
+    color: #fffc00
+}
+
+.fa-globe {
+    color: #304a4b
 }
 
 .desc {

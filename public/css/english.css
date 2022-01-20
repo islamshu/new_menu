@@ -1,201 +1,225 @@
-* {
-    font-family: 'Cairo', sans-serif;
-}
-
-.fixed-top {
-    background-color: #6d6565;
-    overflow: auto;
-    white-space: nowrap;
-    width: 66% !important;
-    height: 67px;
-    direction: rtl;
-    font-size: 25px;
-    top: 0;
-    left: 17%;
-}
-
-.title {
-    text-align: center !important;
-    font-size: 50px;
-    color: #000;
-}
-
-.desc {
-    text-align: center !important;
-    font-size: 30px;
-    color: #000;
-}
-
-.card-title {
-    direction: rtl;
-    text-align: left;
-}
-
-.paragraph {
-    text-align: left;
-    color: #846725;
-    margin-top: 8%;
-    font-size: 34px;
-}
-
-.shadow {
-    padding: 2%;
-}
-
-.price {
-    color: #81d85d;
-}
-
-.loader {
-    border: 16px solid #f3f3f3;
-    /* Light grey */
-    border-top: 16px solid #3498db;
-    /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.title_menu {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.link1 {
-    float: left;
-    margin-top: 15%;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.link2 {
-    float: right;
-    margin-top: 5%;
-}
-
-@media (min-width: 768px) {
-    .fixed-top {
-        position: fixed;
-        top: 1px;
-        right: 0;
-        left: 19px;
-        z-index: 1030;
-        width: 85% !important;
-    }
-    div.scrollmenu {
-        background-color: #6d6565;
-        overflow: auto;
-        white-space: nowrap;
-        width: 100% !important;
-        height: 69px;
-        direction: rtl;
-        font-size: 25px;
-    }
-    div.scrollmenu a {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14px;
-        text-decoration: none;
-    }
-    /* div.scrollmenu a:hover {
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .scrollbar-thumb {
+            display: none;
+        }
+        
+        .fixed-top {
+            background-color: #6d6565;
+            overflow: auto;
+            white-space: nowrap;
+            width: 66% !important;
+            height: 67px;
+            direction: rtl;
+            font-size: 25px;
+            top: 0;
+            left: 17%;
+        }
+        
+        .fa-globe {
+            color: #304a4b
+        }
+        
+        .fa-facebook {
+            color: rgb(0, 89, 255);
+        }
+        
+        .fa-twitter {
+            color: #1da1f2;
+        }
+        
+        .fa-instagram {
+            color: #c32aa3
+        }
+        
+        .fa-snapchat {
+            color: #fffc00
+        }
+        
+        .title {
+            text-align: center !important;
+            font-size: 50px;
+            color: #000;
+        }
+        
+        .desc {
+            text-align: center !important;
+            font-size: 30px;
+            color: #000;
+        }
+        
+        .card-title {
+            direction: rtl;
+            text-align: left;
+        }
+        
+        .paragraph {
+            text-align: left;
+            color: #846725;
+            margin-top: 8%;
+            font-size: 34px;
+        }
+        
+        .shadow {
+            padding: 2%;
+        }
+        
+        .price {
+            color: #81d85d;
+        }
+        
+        .loader {
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .title_menu {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        .link1 {
+            float: left;
+            margin-top: 15%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        .link2 {
+            float: right;
+            margin-top: 5%;
+        }
+        
+        @media (min-width: 768px) {
+            .fixed-top {
+                position: fixed;
+                top: 1px;
+                right: 0;
+                left: 19px;
+                z-index: 1030;
+                width: 85% !important;
+            }
+            div.scrollmenu {
+                background-color: #6d6565;
+                overflow: auto;
+                white-space: nowrap;
+                width: 100% !important;
+                height: 69px;
+                direction: rtl;
+                font-size: 25px;
+            }
+            div.scrollmenu a {
+                display: inline-block;
+                color: white;
+                text-align: center;
+                padding: 14px;
+                text-decoration: none;
+            }
+            /* div.scrollmenu a:hover {
         background-color: #04AA6D;
     } */
-    .container {
-        max-width: 1030px !important
-    }
-    .card-img {
-        /* width: 94%; */
-        height: 100%;
-        /* margin-right: 32%; */
-        text-align: center;
-        border-radius: calc(.25rem - 1px);
-    }
-}
-
-.desc {
-    background: -webkit-linear-gradient(#fff81d, #333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #fff81d4a;
-}
-
-.icon-bar {
-    position: absolute;
-    background-color: #fff;
-}
-
-.icon-bar a {
-    display: block;
-    text-align: right;
-    padding: 16px;
-    transition: all 0.3s ease;
-    color: #c08b8b;
-    font-size: 36px;
-}
-
-.icon-bar a:hover {
-    background-color: #000;
-}
-
-.active {
-    background-color: #04AA6D;
-}
-
-.icon-bar-two {
-    text-align: right;
-    background-color: #fff;
-}
-
-.icon-bar-two a {
-    display: inline;
-    text-align: right;
-    padding: 10px;
-    transition: all 0.3s ease;
-    color: #c08b8b;
-    font-size: 36px;
-}
-
-.icon-bar-two a:hover {
-    background-color: rgb(238, 238, 238);
-}
-
-.pagination {
-    display: inline-block;
-    background: azure;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-
-.pagination a.active {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 5px;
-}
-
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
-    border-radius: 5px;
-}
-
-body {
-    min-height: 100vh;
-    background-image: radial-gradient( circle 621px at 25.3% 13.8%, rgba(255, 255, 255, 1) 0%, rgba(234, 236, 255, 1) 90%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+            .container {
+                max-width: 1030px !important
+            }
+            .card-img {
+                /* width: 94%; */
+                height: 100%;
+                /* margin-right: 32%; */
+                text-align: center;
+                border-radius: calc(.25rem - 1px);
+            }
+        }
+        
+        .desc {
+            background: -webkit-linear-gradient(#fff81d, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #fff81d4a;
+        }
+        
+        .icon-bar {
+            position: absolute;
+            background-color: #fff;
+        }
+        
+        .icon-bar a {
+            display: block;
+            text-align: right;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: #c08b8b;
+            font-size: 36px;
+        }
+        
+        .icon-bar a:hover {
+            background-color: #000;
+        }
+        
+        .active {
+            background-color: #04AA6D;
+        }
+        
+        .icon-bar-two {
+            text-align: right;
+            background-color: #fff;
+        }
+        
+        .icon-bar-two a {
+            display: inline;
+            text-align: right;
+            padding: 10px;
+            transition: all 0.3s ease;
+            color: #c08b8b;
+            font-size: 36px;
+        }
+        
+        .icon-bar-two a:hover {
+            background-color: rgb(238, 238, 238);
+        }
+        
+        .pagination {
+            display: inline-block;
+            background: azure;
+        }
+        
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        
+        body {
+            min-height: 100vh;
+            background-image: radial-gradient( circle 621px at 25.3% 13.8%, rgba(255, 255, 255, 1) 0%, rgba(234, 236, 255, 1) 90%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }

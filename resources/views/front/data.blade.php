@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('css/english.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/arabic.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('css/english.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/arabic.css') }}">
 
 </head>
 
@@ -176,6 +176,8 @@
             window.location.hash = target;
             $(document).on("scroll", onScroll);
         });
+        // 'scrollTop': $target.offset().left + $('a.active').outerWidth(true)/2
+
     });
 });
 
@@ -183,10 +185,11 @@ function onScroll(event){
     var scrollPos = $(document).scrollTop();
     $('#navbar_top a').each(function () {
         var currLink = $(this);
+        var element = document.querySelector("#navbar_top a.active")
         var refElement = $(currLink.attr("href"));
         if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
             $('#navbar_top a').removeClass("active");
-            currLink.addClass("active");
+            currLink.addClass("active").width()/2;
         }
         else{
             currLink.removeClass("active");
