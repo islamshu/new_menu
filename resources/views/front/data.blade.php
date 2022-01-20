@@ -93,7 +93,7 @@
                 $products = json_decode(\Http::get('dashboard.yalago.net/api/vendor/'.$rest_name.'/menu?category_id='.$item->category_id)->getBody()->getContents())
 
             @endphp
-            <span id="{{ $item->category_id }}">
+            <span id="{{ $item->category_id }}" style="  width: 100%;">
                 @foreach ($products->data->products_menu as $product)
                     
               
