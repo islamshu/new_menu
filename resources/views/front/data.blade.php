@@ -59,7 +59,7 @@
                 </div>
             </div>
              {{-- end categories --}}
-             <div id="all">
+             <span id="all">
                 @foreach ($products as $item)
     
                 
@@ -86,14 +86,14 @@
                     </div>
                 
                 @endforeach
-            </div>
+            </span>
             @foreach ($general_data->menu_categories as $item)
 
             @php
                 $products = json_decode(\Http::get('dashboard.yalago.net/api/vendor/'.$rest_name.'/menu?category_id='.$item->category_id)->getBody()->getContents())
 
             @endphp
-            <div id="{{ $item->category_id }}">
+            <span id="{{ $item->category_id }}">
                 @foreach ($products->data->products_menu as $product)
                     
               
@@ -122,7 +122,7 @@
                 </div>
            
             @endforeach
-        </div>
+        </span>
             @endforeach
 
         </div>
