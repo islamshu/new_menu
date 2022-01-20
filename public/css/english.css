@@ -108,9 +108,9 @@
         padding: 14px;
         text-decoration: none;
     }
-    div.scrollmenu a:hover {
-        background-color: #777;
-    }
+    /* div.scrollmenu a:hover {
+        background-color: #04AA6D;
+    } */
     .container {
         max-width: 1030px !important
     }

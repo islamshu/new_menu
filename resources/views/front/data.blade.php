@@ -30,7 +30,7 @@
                         <a href="#"><i class="fa fa-instagram"></i></a>
                         <a href="#"><i class="fa fa-snapchat"></i></a>
                     </div>
-                    <div class="icon-bar-two">
+                    <div class="icon-bar-two" >
                         <a href="#"><i class="fa fa-globe"></i><span style="font-size: 28px">EN</span> </a>
                     </div>
 
@@ -47,6 +47,7 @@
                 </div>
             </div>
             {{-- start categories --}}
+            <span  id="all" style="width: 100%;">
             <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2">
                 <div class="scrollmenu" id="navbar_top">
                     <a href="#all" class="active" >الرئيسية</a>
@@ -59,7 +60,7 @@
                 </div>
             </div>
              {{-- end categories --}}
-             <span id="all" style="width: 100%;">
+          
                 @foreach ($products as $item)
     
                 
@@ -154,13 +155,18 @@
     //smoothscroll
     $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
-        $(document).off("scroll");
-        
         $('a').each(function () {
             $(this).removeClass('active');
         })
         $(this).addClass('active');
-      
+
+        $(document).off("scroll");
+        
+     
+        $(this).addClass('active');
+        $('a').each(function () {
+            $(this).removeClass('active');
+        })
         var target = this.hash,
             menu = target;
         $target = $(target);
