@@ -59,7 +59,7 @@
                 </div>
             </div>
              {{-- end categories --}}
-             <span id="all">
+             <span id="all" style="width: 100%;">
                 @foreach ($products as $item)
     
                 
