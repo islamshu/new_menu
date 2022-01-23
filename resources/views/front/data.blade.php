@@ -88,6 +88,7 @@
                 
                 @endforeach
             </span>
+            {{-- start product category --}}
             @foreach ($general_data->menu_categories as $item)
 
             @php
@@ -125,6 +126,7 @@
             @endforeach
         </span>
             @endforeach
+            {{-- end product category --}}
 
         </div>
     </div>
