@@ -1,7 +1,4 @@
-* {
-    font-family: 'Cairo', sans-serif;
-}
-
+@import url(url(../fonts/Abd-ElRady-Regular.otf);
 .title {
     text-align: center !important;
     font-size: 50px;
@@ -78,7 +75,7 @@ body {
     text-align: right;
     color: #846725;
     margin-top: 8%;
-    font-size: 34px;
+    font-size: 36px;
 }
 
 .shadow {
@@ -86,24 +83,25 @@ body {
 }
 
 .price {
-    color: #81d85d;
+    color: #78E47B;
 }
 
 .title_menu {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 .link1 {
     float: right;
     margin-top: 15%;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
 }
 
 .link2 {
     float: left;
     margin-top: 5%;
+    font-size: 28px;
 }
 
 @media (min-width: 768px) {
