@@ -13,10 +13,27 @@
 
 </head>
 
+<style>
+    .loading {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        /* background-color: rgba(192, 192, 192, 0.5); */
+        background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+ 
+</style>
 
 
 <body>
-   
+
 
 
     <div class="container">
@@ -30,7 +47,7 @@
                         <a href="#"><i class="fa fa-instagram"></i></a>
                         <a href="#"><i class="fa fa-snapchat"></i></a>
                     </div>
-                    <div class="icon-bar-two" >
+                    <div class="icon-bar-two">
                         <a href="#"><i class="fa fa-globe"></i><span style="font-size: 28px">EN</span> </a>
                     </div>
 
@@ -46,28 +63,33 @@
 
                 </div>
             </div>
-            {{-- start categories --}}
-            <span  id="all" style="width: 100%;">
-            <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2">
-                <div class="scrollmenu" id="navbar_top">
-                    <a href="#all" class="active" >الرئيسية</a>
-
-                    @foreach ($general_data->menu_categories as $item)
           
-                        <a href="#{{ $item->category_id }}" >{{ $item->category_name }}</a>
-                    @endforeach
+                <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2 fixme " style="width: 100%;">
+                    <div class="all_category"
+                        style="position: relative; text-align: center ;     background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQObjOWwRIvbm4oWVM5pleLJEIG2FJGCtUnow&usqp=CAU);">
+                        <button class="button_style category_id active"  value="all" id="category_id">الرئيسية</button>
 
+                        @foreach ($general_data->menu_categories as $key => $item)
+
+                            @if ($key == 4 || $key == 10)
+                                <br>
+                            @endif
+                            <button class="button_style category_id"  value="{{ $item->category_id }}" id="category_id">{{ $item->category_name }}</button>
+                        @endforeach
+
+                    </div>
                 </div>
-            </div>
-             {{-- end categories --}}
-          
+                {{-- end categories --}}
+                <span id="product_section" style="width: 100% !important">
+
                 @foreach ($products as $item)
-    
-                
-                    <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2 page-section " >
+
+
+                    <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2 page-section ">
                         <div class="card shadow">
-                            <img class="card-img" src="{{ $item->image }}" width="300" height="350" alt="succulent">
-    
+                            <img class="card-img" src="{{ $item->image }}" width="300" height="350"
+                                alt="succulent">
+
                             <div class="card-body">
                                 <h4 class="card-title title_menu">{{ $item->product_name }}</h4>
                                 <p class="card-text paragraph">
@@ -82,125 +104,155 @@
                                 <a class="card-link link2"><img src="{{ $general_data->vendor_image }}" width="170"
                                         height="180" alt=""></a>
                             </div>
-    
+
                         </div>
                     </div>
-                
+
                 @endforeach
             </span>
+         
             {{-- start product category --}}
-            @foreach ($general_data->menu_categories as $item)
+            <div id="loader" ></div>
 
-            @php
-                $products = json_decode(\Http::get('dashboard.yalago.net/api/vendor/'.$rest_name.'/menu?category_id='.$item->category_id)->getBody()->getContents())
+            {{-- @foreach ($general_data->menu_categories as $item)
+                @php
+                    $products = json_decode(
+                        \Http::get('dashboard.yalago.net/api/vendor/' . $rest_name . '/menu?category_id=' . $item->category_id)
+                            ->getBody()
+                            ->getContents(),
+                    );
+                @endphp
+                <span id="{{ $item->category_id }}" style="  width: 100%;">
+                    @foreach ($products->data->products_menu as $product)
+                        <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2 page-section ">
+                            <div class="card shadow">
+                                <img class="card-img" src="{{ $product->image }}" width="300" height="350"
+                                    alt="succulent">
+                                <div class="card-body">
+                                    <h4 class="card-title title_menu">{{ $product->product_name }}</h4>
+                                    <p class="card-text paragraph">
+                                        {!! $product->product_desc !!}
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <a class="card-link link1 "> <span class="price">CAL
+                                            {{ $product->product_calories }} </span> /
+                                        {{ $product->price_currency }}
+                                        {{ $product->product_price }}
+                                    </a>
+                                    <a class="card-link link2"><img src="{{ $general_data->vendor_image }}"
+                                            width="170" height="180" alt=""></a>
+                                </div>
 
-            @endphp
-            <span id="{{ $item->category_id }}" style="  width: 100%;">
-                @foreach ($products->data->products_menu as $product)
-                    
-              
-
-           
-                <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2 page-section "  >
-                    <div class="card shadow">
-                        <img class="card-img" src="{{ $product->image }}" width="300" height="350" alt="succulent">
-                
-                        <div class="card-body">
-                            <h4 class="card-title title_menu">{{ $product->product_name }}</h4>
-                            <p class="card-text paragraph">
-                                {!! $product->product_desc !!}
-                            </p>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <a class="card-link link1 "> <span class="price">CAL
-                                    {{ $product->product_calories }} </span> / {{ $product->price_currency }}
-                                {{ $product->product_price }}
-                            </a>
-                            <a class="card-link link2"><img src="{{ $general_data->vendor_image }}" width="170"
-                                    height="180" alt=""></a>
-                        </div>
-                
-                    </div>
-                </div>
-           
-            @endforeach
-        </span>
-            @endforeach
+
+                    @endforeach
+                </span>
+            @endforeach --}}
             {{-- end product category --}}
+            
 
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 350) {
-                    //   alert(window.scrollY)
-                    document.getElementById('navbar_top').classList.add('fixed-top');
-                    // add padding top to show content behind navbar
-                    navbar_height = document.querySelector('.scrollmenu').offsetHeight;
-                    document.body.style.paddingTop = navbar_height + 'px';
-                } else {
-                    document.getElementById('navbar_top').classList.remove('fixed-top');
-                    // remove padding top from body
-                    document.body.style.paddingTop = '0';
-                }
+            $(".category_id").click(function(){
+                          var id =  $(this).attr('value');
+                          $(".all_category .active").removeClass("active"); 
+                          $(this).addClass('active');
+
+                          $.ajax({
+                              url: '{{ route('category',$rest_name) }}',
+                              type: "get",
+                              data: {id: id},
+                               beforeSend: function() {
+                                $("#loader").addClass('loading');
+                              },
+                              success: function(data) {
+                                $("#product_section").empty(); 
+
+                                  $("#product_section").append(data); 
+                                 },
+                              complete: function(data) {
+                                $("#loader").removeClass('loading');
+                              },
+                          });
+                      });
+        var fixmeTop = $('.fixme').offset().top; // get initial position of the element
+
+        $(window).scroll(function() { // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) { // apply position: fixed if you
+                $('.fixme').css({ // scroll to that element or below it
+                    position: 'fixed',
+                    'z-index': '2',
+                    top: '-12px',
+                    left: '0'
+                });
+            } else { // apply position: static
+                $('.fixme').css({ // if you scroll above it
+                    position: 'static'
+                });
+            }
+
+        });
+    
+       
+        $(document).ready(function() {
+           
+            //smoothscroll
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                $('a').each(function() {
+                    $(this).removeClass('active');
+                })
+                $(this).addClass('active');
+
+                $(document).off("scroll");
+
+
+                $(this).addClass('active');
+                $('a').each(function() {
+                    $(this).removeClass('active');
+                })
+                var target = this.hash,
+                    menu = target;
+                $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top + 2
+                }, 500, 'swing', function() {
+                    window.location.hash = target;
+                    $(document).on("scroll", onScroll);
+                });
+                // 'scrollTop': $target.offset().left + $('a.active').outerWidth(true)/2
+
             });
         });
+
+        // function onScroll(event){
+        //     var scrollPos = $(document).scrollTop();
+        //     $('#navbar_top a').each(function () {
+        //         var currLink = $(this);
+        //         var element = document.querySelector("#navbar_top a.active")
+        //         var refElement = $(currLink.attr("href"));
+        //         if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+        //             $('#navbar_top a').removeClass("active");
+        //             currLink.addClass("active").width()/2;
+        //         }
+        //         else{
+        //             currLink.removeClass("active");
+        //         }
+        //     });
+        // }
     </script>
-    <script>
-        $(document).ready(function () {
-    $(document).on("scroll", onScroll);
-    
-    //smoothscroll
-    $('a[href^="#"]').on('click', function (e) {
-        e.preventDefault();
-        $('a').each(function () {
-            $(this).removeClass('active');
-        })
-        $(this).addClass('active');
 
-        $(document).off("scroll");
-        
-     
-        $(this).addClass('active');
-        $('a').each(function () {
-            $(this).removeClass('active');
-        })
-        var target = this.hash,
-            menu = target;
-        $target = $(target);
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top+2
-        }, 500, 'swing', function () {
-            window.location.hash = target;
-            $(document).on("scroll", onScroll);
-        });
-        // 'scrollTop': $target.offset().left + $('a.active').outerWidth(true)/2
 
-    });
-});
-
-function onScroll(event){
-    var scrollPos = $(document).scrollTop();
-    $('#navbar_top a').each(function () {
-        var currLink = $(this);
-        var element = document.querySelector("#navbar_top a.active")
-        var refElement = $(currLink.attr("href"));
-        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-            $('#navbar_top a').removeClass("active");
-            currLink.addClass("active").width()/2;
-        }
-        else{
-            currLink.removeClass("active");
-        }
-    });
-}
-    </script>
-   
-    
 
 </body>
 

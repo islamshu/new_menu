@@ -6,16 +6,6 @@
     font-family: Abd ElRady;
 }
 
-.button_style {
-    padding: 11px;
-    border-radius: 7%;
-    display: inline-flex;
-    margin: 5px;
-    font-size: 25px;
-    text-align: center;
-    color: black;
-}
-
 .scrollbar-thumb {
     display: none;
 }
@@ -187,8 +177,7 @@
 }
 
 .active {
-    background-color: #2f2f2ede;
-    color: white !important;
+    background-color: #04AA6D;
 }
 
 .icon-bar-two {
