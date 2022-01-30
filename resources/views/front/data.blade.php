@@ -34,9 +34,10 @@
 
 <body>
 
-
+    
 
     <div class="container">
+        <span id="product_section_animite"></span>
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2">
 
@@ -65,8 +66,9 @@
             </div>
           
                 <div class="col-lg-12 col-md-12 col-sm-12   col-xs-12   mt-2 mb-2 fixme " style="width: 100%;">
+                    {{-- background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQObjOWwRIvbm4oWVM5pleLJEIG2FJGCtUnow&usqp=CAU); --}}
                     <div class="all_category"
-                        style="position: relative; text-align: center ;     background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQObjOWwRIvbm4oWVM5pleLJEIG2FJGCtUnow&usqp=CAU);">
+                        style="position: relative; text-align: center ; background: azure  ">
                         <button class="button_style category_id active"  value="all" id="category_id">الرئيسية</button>
 
                         @foreach ($general_data->menu_categories as $key => $item)
@@ -80,6 +82,7 @@
                     </div>
                 </div>
                 {{-- end categories --}}
+
                 <span id="product_section" style="width: 100% !important">
 
                 @foreach ($products as $item)
@@ -164,18 +167,22 @@
                           var id =  $(this).attr('value');
                           $(".all_category .active").removeClass("active"); 
                           $(this).addClass('active');
-
+                          
                           $.ajax({
                               url: '{{ route('category',$rest_name) }}',
                               type: "get",
                               data: {id: id},
                                beforeSend: function() {
+                                $('html, body').animate({
+                                scrollTop: $("#product_section_animite").offset().top
+                            }, 1000);
                                 $("#loader").addClass('loading');
                               },
                               success: function(data) {
                                 $("#product_section").empty(); 
 
                                   $("#product_section").append(data); 
+                               
                                  },
                               complete: function(data) {
                                 $("#loader").removeClass('loading');
